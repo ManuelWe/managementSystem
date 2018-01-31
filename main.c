@@ -45,7 +45,7 @@ void deleteP(struct person_t* ptr){
 }
 
 
-void main(main){
+int main(){
 
     struct person_t person[100];
     int auswahl=0;
@@ -61,7 +61,7 @@ void main(main){
             break;
         }
     }
-
+return 0;
 }
 
 
