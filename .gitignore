@@ -1,3 +1,5 @@
 .idea
 cmake-build-debug
 main.o
+test.exe
+test.o
