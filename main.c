@@ -19,8 +19,7 @@ void add(){
     if(head == NULL) {
         head = person;
         head->next = NULL;
-    }
-    else {
+    } else {
         while(ptr->next != NULL) ptr = ptr->next;
         ptr->next = person;
         person->prev = ptr;
@@ -61,12 +60,33 @@ void deleteAll(){
     head = NULL;
 }
 
+void deletePerson(char *name){
+    struct person_t* ptr = head;
+    struct person_t* temp;
+    int str_comp = strcmp(ptr->name, name);
+    while(ptr != NULL){
+        while(str_comp != 0 && ptr != NULL){
+            ptr = ptr->next;
+        }
+        if(str_comp == 0){
+            printf("hi");           //Wird erreicht, folgendes passt nicht.
+            ptr->next->prev = ptr->prev;
+            ptr->prev->next = ptr->next;
+        } else{
+            printf("Es existiert keine Person mit diesem Namen!\n");
+        }
+    }
+
+}
+
 
 int main(){
 
     int auswahl=0;
-    while(auswahl!=4){
-        printf("Was möchten Sie tun?\n (1) Add Person\n (2) Print all\n (3) Delete Everything\n (4) End Programm\n");
+    char name[20+1];
+
+    while(auswahl!=5){
+        printf("Was möchten Sie tun?\n (1) Add Person\n (2) Print all\n (3) Delete Everything\n (4) Delete Person by Name\n (5) End Programm\n");
         scanf("%d", &auswahl);
         switch(auswahl){
         case 1: add();
@@ -76,6 +96,11 @@ int main(){
         case 3: deleteAll();
             break;
         case 4:
+            printf("Bitte geben Sie den Namen ein:");
+            scanf("%s", &name);
+            deletePerson(name);
+            break;
+        case 5:
             break;
         default:
             printf("Ungültige Eingabe!\n");
