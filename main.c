@@ -357,6 +357,7 @@ void bubblesort(struct person_t **head){
     for(int k=0; k<length-1; k++){
         for(int j=0; j<length-1; j++){
             if(strcmp(ptr->name, ptr->next->name) == 1){
+
                 tmp = ptr->prev;
                 tmp1 = ptr->next->next;
 
@@ -394,6 +395,7 @@ void printAll(struct person_t *head) {
 }
 
 void search(struct person_t *head, char *name) {
+
     int searchCounter = 0;
     if(head) {
         struct person_t *ptr = head;
