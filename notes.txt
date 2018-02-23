@@ -1,2 +1,3 @@
-input verifikation
-bibliothek
+﻿input l�nge verifizieren
+
+read file falscher input
